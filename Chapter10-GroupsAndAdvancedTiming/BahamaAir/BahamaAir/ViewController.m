@@ -73,7 +73,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    self.loginButton.alpha = 0.0;
+//    self.loginButton.alpha = 0.0;
     
 }
 
@@ -82,30 +82,31 @@
     
     CGFloat offset = self.view.bounds.size.width;
     
-    //layer animation
+    CAAnimationGroup *formGroup = [CAAnimationGroup animation];
+    formGroup.duration = 0.5;
+    formGroup.fillMode = kCAFillModeBackwards;
+    formGroup.delegate = self;
+    [formGroup setValue:@"form" forKey:@"name"];
+    
     CABasicAnimation *flyRight = [CABasicAnimation animationWithKeyPath:@"position.x"];
     flyRight.fromValue = [NSNumber numberWithDouble:-offset/2];
     flyRight.toValue = [NSNumber numberWithDouble:offset/2];
-    flyRight.fillMode = kCAFillModeBoth;
-    flyRight.duration = 0.5;
     
-    //use layer animation instead of view animation.
-    flyRight.delegate = self;
-    [flyRight setValue:@"form" forKey:@"name"];
-    [flyRight setValue:self.heading.layer forKey:@"layer"];
-    [self.heading.layer addAnimation:flyRight forKey:nil];
+    CABasicAnimation *fadeFieldIn = [CABasicAnimation animationWithKeyPath:@"opacity"];
+    fadeFieldIn.fromValue = [NSNumber numberWithFloat:0.25];
+    fadeFieldIn.toValue = [NSNumber numberWithFloat:1.0];
     
+    formGroup.animations = @[flyRight,fadeFieldIn];
     
-    flyRight.beginTime = CACurrentMediaTime() + 0.3;
-    [flyRight setValue:self.username.layer forKey:@"layer"];
-    [self.username.layer addAnimation:flyRight forKey:nil];
+    [self.heading.layer addAnimation:formGroup forKey:nil];
     
+    [formGroup setValue:self.username.layer forKey:@"layer"];
+    formGroup.beginTime = CACurrentMediaTime() + 0.3;
+    [self.username.layer addAnimation:formGroup forKey:nil];
     
-    flyRight.beginTime = CACurrentMediaTime() + 0.4;
-    [flyRight setValue:self.password.layer forKey:@"layer"];
-    [self.password.layer addAnimation:flyRight forKey:nil];
-    
-    self.loginButton.center = CGPointMake(self.loginButton.center.x, self.loginButton.center.y + 30.0);
+    [formGroup setValue:self.password.layer forKey:@"layer"];
+    formGroup.beginTime = CACurrentMediaTime() + 0.4;
+    [self.password.layer addAnimation:formGroup forKey:nil];
     
     
     CABasicAnimation *fadeIn = [CABasicAnimation animationWithKeyPath:@"opacity"];
@@ -127,11 +128,28 @@
     [self.cloud4.layer addAnimation:fadeIn forKey:nil];
 
     
-    [UIView animateWithDuration:0.5 delay:0.5 usingSpringWithDamping:0.5 initialSpringVelocity:0.0 options:UIViewAnimationOptionTransitionNone animations:^{
-        self.loginButton.center = CGPointMake(self.loginButton.center.x, self.loginButton.center.y - 30);
-        self.loginButton.alpha = 1.0;
-    } completion:nil];
+    CAAnimationGroup *groupAnimation = [CAAnimationGroup animation];
+    groupAnimation.beginTime = CACurrentMediaTime() + 0.5;
+    groupAnimation.duration = 0.5;
+    groupAnimation.fillMode = kCAFillModeBackwards;
+    groupAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
     
+    CABasicAnimation *scaleDown = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
+    scaleDown.fromValue = [NSNumber numberWithFloat:3.5];
+    scaleDown.toValue = [NSNumber numberWithFloat:1.0];
+    
+    
+    CABasicAnimation *rotate = [CABasicAnimation animationWithKeyPath:@"transform.rotation"];
+    rotate.fromValue = [NSNumber numberWithFloat:M_PI_4];
+    rotate.toValue = [NSNumber numberWithFloat:0.0];
+    
+    CABasicAnimation *fade = [CABasicAnimation animationWithKeyPath:@"opacity"];
+    fade.fromValue = [NSNumber numberWithFloat:0.0];
+    fade.toValue = [NSNumber numberWithFloat:1.0];
+    
+    groupAnimation.animations = @[scaleDown,rotate,fade];
+    
+    [self.loginButton.layer addAnimation:groupAnimation forKey:nil];
     
     [self animateCloud:self.cloud1.layer];
     [self animateCloud:self.cloud2.layer];
@@ -231,20 +249,6 @@
     
     [layer addAnimation:cloundMove forKey:nil];
 }
-
-/* use layer animation instead
-- (void)animateCloud:(UIImageView *)cloud {
-    CGFloat cloudSpeed = 60.0/self.view.frame.size.width;
-    CGFloat duration = (self.view.frame.size.width - cloud.frame.origin.x)*cloudSpeed;
-    [UIView animateWithDuration:(NSTimeInterval)duration animations:^{
-        cloud.frame = CGRectMake(self.view.frame.size.width, cloud.frame.origin.y, cloud.frame.size.width, cloud.frame.size.height);
-    } completion:^(BOOL finished) {
-        cloud.frame = CGRectMake(cloud.frame.origin.x - self.view.frame.size.width, cloud.frame.origin.y, cloud.frame.size.width, cloud.frame.size.height);
-        
-        [self animateCloud:cloud];
-    }];
-}
-*/
 
 
 - (void)removeMessage:(NSInteger)index{
