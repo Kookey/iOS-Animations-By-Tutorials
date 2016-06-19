@@ -223,6 +223,15 @@
 }
 
 - (void)resetForm{
+    
+    
+    CAKeyframeAnimation *wobble = [CAKeyframeAnimation animationWithKeyPath:@"transform.rotation"];
+    wobble.duration = 0.25;
+    wobble.repeatCount = 4;
+    wobble.values = @[@(0.0),@(-M_PI_4/4),@(0.0),@(M_PI_4/4),@(0.0)];
+    wobble.keyTimes = @[@(0.0),@(0.25),@(0.5),@(0.75),@(1.0)];
+    [self.heading.layer addAnimation:wobble forKey:nil];
+    
     [UIView transitionWithView:_status duration:0.33 options:UIViewAnimationOptionCurveEaseIn|UIViewAnimationOptionTransitionFlipFromTop animations:^{
         _status.hidden = YES;
         _status.center = _statusPosition;
@@ -288,6 +297,20 @@
     } completion:nil];
     
     [self roundCorners:self.loginButton.layer toRadius:25.0];
+    
+    
+    CALayer *ballon = [CALayer layer];
+    ballon.contents = (__bridge id _Nullable)([UIImage imageNamed:@"balloon"].CGImage);
+    ballon.frame = CGRectMake(-50, 0.0, 50, 65.0);
+    [self.view.layer insertSublayer:ballon below:self.username.layer];
+    
+    CAKeyframeAnimation *flight = [CAKeyframeAnimation animationWithKeyPath:@"position"];
+    flight.duration = 12.0;
+    flight.values = @[[NSValue valueWithCGPoint:CGPointMake(-50.0, 0.0)],[NSValue valueWithCGPoint:CGPointMake(self.view.frame.size.width + 50.0, 160.0)],[NSValue valueWithCGPoint:CGPointMake(-50.0, self.loginButton.center.y)]];
+    flight.keyTimes = @[@(0.0),@(0.5),@(1.0)];
+    [ballon addAnimation:flight forKey:nil];
+    ballon.position = CGPointMake(-50.0, self.loginButton.center.y);
+    
 }
 
 #pragma UITextFieldDelegate
