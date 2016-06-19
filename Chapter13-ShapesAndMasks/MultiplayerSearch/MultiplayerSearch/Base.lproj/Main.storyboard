@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Pas-KF-ziN">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="Arial Rounded Bold.ttf">
+            <string>ArialRoundedMTBold</string>
+            <string>ArialRoundedMTBold</string>
+            <string>ArialRoundedMTBold</string>
+        </mutableArray>
+    </customFonts>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="pBj-DA-7BE">
+            <objects>
+                <viewController storyboardIdentifier="HomeController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Pas-KF-ziN" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="c72-WQ-eO2"/>
+                        <viewControllerLayoutGuide type="bottom" id="luE-LH-sHL"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="9NE-fI-9vP">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg-boxingring" translatesAutoresizingMaskIntoConstraints="NO" id="NmN-BR-Wwu" userLabel="bg-boxingring">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Searching for opponents..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xbm-0a-31E" userLabel="status">
+                                <rect key="frame" x="30" y="30" width="315" height="34"/>
+                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="29"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zje-bF-oMZ" userLabel="opponetAvatar" customClass="AvatarView">
+                                <rect key="frame" x="43" y="189" width="90" height="90"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="90" id="Vkx-HJ-15V"/>
+                                    <constraint firstAttribute="width" constant="90" id="aYG-eJ-HTb"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZoW-dM-ZEj" userLabel="myAvatar" customClass="AvatarView">
+                                <rect key="frame" x="243" y="189" width="90" height="90"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="90" id="0QK-vh-TJQ"/>
+                                    <constraint firstAttribute="height" constant="90" id="VPP-CS-Thd"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a45-9J-GLf">
+                                <rect key="frame" x="0.0" y="559" width="375" height="48"/>
+                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="31"/>
+                                <color key="tintColor" red="1" green="0.88856565237894736" blue="0.30278748626052626" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Search Again">
+                                    <color key="titleShadowColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="actionSearchAgain" destination="Pas-KF-ziN" eventType="touchUpInside" id="0PS-0t-0fr"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VS." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l0b-fL-hKP" userLabel="Vs">
+                                <rect key="frame" x="164" y="217" width="48" height="34"/>
+                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="29"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="xbm-0a-31E" firstAttribute="top" secondItem="9NE-fI-9vP" secondAttribute="top" constant="30" id="2xo-9M-8gT"/>
+                            <constraint firstItem="zje-bF-oMZ" firstAttribute="centerY" secondItem="NmN-BR-Wwu" secondAttribute="centerY" constant="-100" id="3gR-1a-tGd"/>
+                            <constraint firstItem="NmN-BR-Wwu" firstAttribute="top" secondItem="c72-WQ-eO2" secondAttribute="bottom" id="BFV-Qk-XlO"/>
+                            <constraint firstAttribute="trailing" secondItem="a45-9J-GLf" secondAttribute="trailing" id="DjM-QW-9TP"/>
+                            <constraint firstItem="zje-bF-oMZ" firstAttribute="leading" secondItem="9NE-fI-9vP" secondAttribute="leading" constant="30" id="M2g-36-rae"/>
+                            <constraint firstItem="NmN-BR-Wwu" firstAttribute="leading" secondItem="9NE-fI-9vP" secondAttribute="leading" id="Sgh-kI-GEX"/>
+                            <constraint firstItem="luE-LH-sHL" firstAttribute="top" secondItem="NmN-BR-Wwu" secondAttribute="bottom" id="Tcx-OP-BZh"/>
+                            <constraint firstItem="ZoW-dM-ZEj" firstAttribute="centerY" secondItem="NmN-BR-Wwu" secondAttribute="centerY" constant="-100" id="YNh-kh-dgm"/>
+                            <constraint firstItem="NmN-BR-Wwu" firstAttribute="top" secondItem="9NE-fI-9vP" secondAttribute="top" id="Z0r-WM-7Tj"/>
+                            <constraint firstAttribute="trailing" secondItem="xbm-0a-31E" secondAttribute="trailing" constant="30" id="Zva-S2-sRc"/>
+                            <constraint firstAttribute="trailing" secondItem="ZoW-dM-ZEj" secondAttribute="trailing" constant="30" id="eGP-sj-gAa"/>
+                            <constraint firstItem="l0b-fL-hKP" firstAttribute="centerX" secondItem="NmN-BR-Wwu" secondAttribute="centerX" id="g6j-NQ-faY"/>
+                            <constraint firstItem="xbm-0a-31E" firstAttribute="leading" secondItem="9NE-fI-9vP" secondAttribute="leading" constant="30" id="gMu-f6-sk9"/>
+                            <constraint firstAttribute="trailing" secondItem="NmN-BR-Wwu" secondAttribute="trailing" id="gNk-wJ-bn7"/>
+                            <constraint firstAttribute="bottom" secondItem="a45-9J-GLf" secondAttribute="bottom" constant="60" id="ioV-iS-aPJ"/>
+                            <constraint firstItem="ZoW-dM-ZEj" firstAttribute="centerY" secondItem="zje-bF-oMZ" secondAttribute="centerY" id="kGZ-EF-ShA"/>
+                            <constraint firstItem="zje-bF-oMZ" firstAttribute="centerX" secondItem="NmN-BR-Wwu" secondAttribute="centerX" constant="-100" id="nVV-mH-Avw"/>
+                            <constraint firstItem="ZoW-dM-ZEj" firstAttribute="centerX" secondItem="NmN-BR-Wwu" secondAttribute="centerX" constant="100" id="o6P-nK-nLo"/>
+                            <constraint firstItem="a45-9J-GLf" firstAttribute="leading" secondItem="9NE-fI-9vP" secondAttribute="leading" id="q7r-K2-e2o"/>
+                            <constraint firstItem="l0b-fL-hKP" firstAttribute="centerY" secondItem="ZoW-dM-ZEj" secondAttribute="centerY" id="zde-Yx-Qz1"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="BFV-Qk-XlO"/>
+                                <exclude reference="M2g-36-rae"/>
+                                <exclude reference="eGP-sj-gAa"/>
+                                <exclude reference="kGZ-EF-ShA"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="myAvatar" destination="ZoW-dM-ZEj" id="4KA-Np-dTf"/>
+                        <outlet property="opponetAvatar" destination="zje-bF-oMZ" id="TXD-RR-Ool"/>
+                        <outlet property="searchAgain" destination="a45-9J-GLf" id="lmA-os-aW0"/>
+                        <outlet property="status" destination="xbm-0a-31E" id="VL3-f8-Gn7"/>
+                        <outlet property="vs" destination="l0b-fL-hKP" id="0xv-vl-XCV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Dj8-cj-gZn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="688" y="323"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="bg-boxingring" width="320" height="568"/>
+    </resources>
+</document>
