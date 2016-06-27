@@ -11,7 +11,7 @@
 @interface MenuItem ()
 
 @property(nonatomic,strong) NSArray *menuColors;
-@property(nonatomic,strong) NSArray *sharedItems;
+@property(nonatomic,strong) NSMutableArray *sharedItems;
 
 @end
 
@@ -48,9 +48,11 @@
 
 - (NSArray *)sharedItems {
     
-    if (self.sharedItems) {
-        return self.sharedItems;
-    } else {
+    if (_sharedItems.count) {
+        
+        [_sharedItems removeAllObjects];
+    }
+    
         NSMutableArray *items = [NSMutableArray array];
         NSArray *colors = self.menuColors;
         
@@ -61,10 +63,10 @@
         [items addObject:[self initWith:@"✾" title:@"Training programs" color: colors[4]]];
         [items addObject:[self initWith:@"✈︎" title:@"Travel" color: colors[5]]];
         [items addObject:[self initWith:@"🃖" title:@"Etc." color: colors[6]]];
-        
-        self.sharedItems = [NSArray arrayWithArray:items];
-        return self.sharedItems;
-    }
+    
+        _sharedItems = [NSMutableArray arrayWithArray:items];
+    
+        return _sharedItems;
 
 }
 

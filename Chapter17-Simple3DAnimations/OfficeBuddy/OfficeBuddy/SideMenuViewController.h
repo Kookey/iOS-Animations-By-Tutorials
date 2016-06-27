@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CenterViewController.h"
 
 @interface SideMenuViewController : UITableViewController
 
+@property(nonatomic,strong) CenterViewController *centerViewController;
 @end

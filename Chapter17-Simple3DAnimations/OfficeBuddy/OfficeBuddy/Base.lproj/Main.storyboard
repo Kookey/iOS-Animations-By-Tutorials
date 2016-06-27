@@ -74,13 +74,7 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0kK-RG-rOo" id="uGd-D1-42E">
                                     <rect key="frame" x="0.0" y="0.0" width="80" height="83"/>
                                     <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <imageView userInteractionEnabled="NO" tag="6" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="d65-wX-udV">
-                                            <rect key="frame" x="0.0" y="0.0" width="80" height="84"/>
-                                        </imageView>
-                                    </subviews>
                                 </tableViewCellContentView>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="64" id="xzR-ST-vP2" userLabel="HeaderCell">
                                 <rect key="frame" x="0.0" y="112" width="80" height="64"/>
@@ -89,7 +83,6 @@
                                     <rect key="frame" x="0.0" y="0.0" width="80" height="63"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </tableViewCell>
                         </prototypes>
                         <connections>

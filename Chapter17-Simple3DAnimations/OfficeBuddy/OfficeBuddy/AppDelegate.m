@@ -7,6 +7,9 @@
 //
 
 #import "AppDelegate.h"
+#import "SideMenuViewController.h"
+#import "CenterViewController.h"
+#import "ContainerViewController.h"
 
 @interface AppDelegate ()
 
@@ -16,7 +19,21 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    
+    application.statusBarStyle = UIStatusBarStyleLightContent;
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UINavigationController *centerNav = [storyboard instantiateViewControllerWithIdentifier:@"CenterNav"];
+    SideMenuViewController *menuVC = [storyboard instantiateViewControllerWithIdentifier:@"SideMenu"];
+    menuVC.centerViewController = (CenterViewController *)centerNav.viewControllers.firstObject;
+    
+    ContainerViewController *containerVC = [[ContainerViewController alloc] initWithSideMenu:menuVC center:centerNav];
+    
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    self.window.rootViewController = containerVC;
+    self.window.backgroundColor = [UIColor blackColor];
+    [self.window makeKeyAndVisible];
+    
     return YES;
 }
 

@@ -11,4 +11,5 @@
 @interface ContainerViewController : UIViewController
 
 - (void)toggleSideMenu;
+- (instancetype)initWithSideMenu:(UIViewController *)sideMenu center:(UIViewController *)center;
 @end

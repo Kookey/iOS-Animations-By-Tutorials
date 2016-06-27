@@ -7,13 +7,11 @@
 //
 
 #import "SideMenuViewController.h"
-#import "CenterViewController.h"
 #import "MenuItem.h"
 #import "ContainerViewController.h"
 
 @interface SideMenuViewController ()
 
-@property(nonatomic,strong) CenterViewController *centerViewController;
 @property(nonatomic,strong) MenuItem *menuItem;
 @end
 
