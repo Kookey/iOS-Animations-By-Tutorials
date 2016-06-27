@@ -10,7 +10,6 @@
 
 @interface MenuItem ()
 
-@property(nonatomic,strong) NSArray *menuColors;
 @property(nonatomic,strong) NSMutableArray *sharedItems;
 
 @end
@@ -46,25 +45,38 @@
     return self;
 }
 
-- (NSArray *)sharedItems {
+- (NSMutableArray *)sharedItems {
     
-    if (_sharedItems.count) {
-        
-        [_sharedItems removeAllObjects];
-    }
+//    if (_sharedItems.count) {
+//        
+//        [_sharedItems removeAllObjects];
+//    }
     
-        NSMutableArray *items = [NSMutableArray array];
+//        _sharedItems = [NSMutableArray array];
         NSArray *colors = self.menuColors;
-        
-        [items addObject:[self initWith:@"☎︎" title:@"Phone book" color: colors[0]]];
-        [items addObject:[self initWith:@"✉︎" title:@"Email directory" color: colors[1]]];
-        [items addObject:[self initWith:@"♻︎" title:@"Company recycle policy" color: colors[2]]];
-        [items addObject:[self initWith:@"♞" title:@"Games an fun" color: colors[3]]];
-        [items addObject:[self initWith:@"✾" title:@"Training programs" color: colors[4]]];
-        [items addObject:[self initWith:@"✈︎" title:@"Travel" color: colors[5]]];
-        [items addObject:[self initWith:@"🃖" title:@"Etc." color: colors[6]]];
+//
+//        [_sharedItems addObject:[self initWith:@"☎︎" title:@"Phone book" color: colors[0]]];
+//        [_sharedItems addObject:[self initWith:@"✉︎" title:@"Email directory" color: colors[1]]];
+//        [_sharedItems addObject:[self initWith:@"♻︎" title:@"Company recycle policy" color: colors[2]]];
+//        [_sharedItems addObject:[self initWith:@"♞" title:@"Games an fun" color: colors[3]]];
+//        [_sharedItems addObject:[self initWith:@"✾" title:@"Training programs" color: colors[4]]];
+//        [_sharedItems addObject:[self initWith:@"✈︎" title:@"Travel" color: colors[5]]];
+//        [_sharedItems addObject:[self initWith:@"🃖" title:@"Etc." color: colors[6]]];
     
-        _sharedItems = [NSMutableArray arrayWithArray:items];
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        _sharedItems = [@[
+                          [self initWith:@"☎︎" title:@"Phone book" color: colors[0]],
+                          [self initWith:@"✉︎" title:@"Email directory" color: colors[1]],
+                          [self initWith:@"♻︎" title:@"Company recycle policy" color: colors[2]],
+                          [self initWith:@"♞" title:@"Games an fun" color: colors[3]],
+                          [self initWith:@"✾" title:@"Training programs" color: colors[4]],
+                          [self initWith:@"✈︎" title:@"Travel" color: colors[5]],
+                          [self initWith:@"🃖" title:@"Etc." color: colors[6]]
+                          ] mutableCopy];
+ 
+    });
+    
     
         return _sharedItems;
 

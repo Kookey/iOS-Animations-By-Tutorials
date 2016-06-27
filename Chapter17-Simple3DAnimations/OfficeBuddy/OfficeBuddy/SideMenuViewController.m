@@ -13,6 +13,7 @@
 @interface SideMenuViewController ()
 
 @property(nonatomic,strong) MenuItem *menuItem;
+@property(nonatomic,strong) NSMutableArray *dataArray;
 @end
 
 @implementation SideMenuViewController
@@ -21,6 +22,25 @@
     [super viewDidLoad];
     
     self.menuItem = [[MenuItem alloc] init];
+    
+    self.dataArray = [NSMutableArray arrayWithCapacity:7];
+    [self initDataSource];
+}
+
+- (void)initDataSource{
+    
+    NSArray *colors = self.menuItem.menuColors;
+    
+    NSArray *titleArray = @[@"Phone book",@"Email directory",@"Company recycle policy",@"Games an fun",
+                            @"Training programs",@"Travel",@"Etc."];
+    NSArray *symbolArray = @[@"☎︎",@"✉︎",@"♻︎",@"♞",@"✾",@"✈︎",@"🃖"];
+    for (NSInteger i = 0; i < 7; i++) {
+        MenuItem *item = [[MenuItem alloc] init];
+        item.title = titleArray[i];
+        item.symbol = symbolArray[i];
+        item.color = colors[i];
+        [self.dataArray addObject:item];
+    }
     
 }
 
@@ -31,13 +51,13 @@
 #pragma mark - Table view data source
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.menuItem sharedItems].count;
+    return self.dataArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MenuCell" forIndexPath:indexPath];
     
-    MenuItem *item = [self.menuItem sharedItems][indexPath.row];
+    MenuItem *item = self.dataArray[indexPath.row];
     cell.textLabel.backgroundColor = [UIColor clearColor];
     cell.textLabel.textColor = [UIColor whiteColor];
     cell.textLabel.font = [UIFont fontWithName:@"Helvetica" size:36.0];
