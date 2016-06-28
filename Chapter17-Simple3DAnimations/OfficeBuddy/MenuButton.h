@@ -12,6 +12,8 @@ typedef void(^tapHandlerBlock)();
 
 @interface MenuButton : UIView
 
+@property(nonatomic,strong) UIImageView *imageView;
+
 @property(nonatomic,strong) tapHandlerBlock tapHandler;
 
 @end

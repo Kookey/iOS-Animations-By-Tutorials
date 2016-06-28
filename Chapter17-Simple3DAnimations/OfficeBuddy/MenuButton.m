@@ -10,7 +10,6 @@
 
 @interface MenuButton ()
 
-@property(nonatomic,strong) UIImageView *imageView;
 @end
 
 @implementation MenuButton

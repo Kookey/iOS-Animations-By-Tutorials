@@ -8,8 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "MenuItem.h"
+#import "MenuButton.h"
 
 @interface CenterViewController : UIViewController
 
 @property(nonatomic,strong) MenuItem *menuItem;
+
+@property(nonatomic,strong) MenuButton *menuButton;
 @end

@@ -7,12 +7,10 @@
 //
 
 #import "CenterViewController.h"
-#import "MenuButton.h"
 #import "ContainerViewController.h"
 
 @interface CenterViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *symbol;
-@property(nonatomic,strong) MenuButton *menuButton;
 
 @end
 
@@ -22,6 +20,9 @@
     _menuItem = menuItem;
     
     self.title = menuItem.title;
+    
+//    self.navigationController.navigationItem.title = menuItem.title;
+    self.navigationController.navigationBar.backgroundColor = [UIColor blackColor];
     self.view.backgroundColor = menuItem.color;
     self.symbol.text = menuItem.symbol;
     
@@ -39,8 +40,8 @@
     
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.menuButton];
     
-    MenuItem *mitem = [[MenuItem alloc] init];
-    self.menuItem = [mitem sharedItems].firstObject;
+//    MenuItem *mitem = [[MenuItem alloc] init];
+//    self.menuItem = [mitem sharedItems].firstObject;
     
 }
 
