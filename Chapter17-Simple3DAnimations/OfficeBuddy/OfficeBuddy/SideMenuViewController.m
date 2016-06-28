@@ -29,7 +29,15 @@
 
 - (void)initDataSource{
     
-    NSArray *colors = self.menuItem.menuColors;
+    NSArray *colors =  @[
+                         [UIColor redColor],
+                         [UIColor brownColor],
+                         [UIColor yellowColor],
+                         [UIColor greenColor],
+                         [UIColor magentaColor],
+                         [UIColor blueColor],
+                         [UIColor orangeColor]
+                           ];
     
     NSArray *titleArray = @[@"Phone book",@"Email directory",@"Company recycle policy",@"Games an fun",
                             @"Training programs",@"Travel",@"Etc."];
@@ -65,6 +73,7 @@
     cell.textLabel.text = item.symbol;
     
     cell.contentView.backgroundColor = item.color;
+
     
     return cell;
 }
@@ -76,7 +85,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    MenuItem *item = [self.menuItem sharedItems][indexPath.row];
+    MenuItem *item = self.dataArray[indexPath.row];
     
     self.centerViewController.menuItem = item;
     

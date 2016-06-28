@@ -14,7 +14,4 @@
 @property(nonatomic,copy) NSString *symbol;
 @property(nonatomic,strong) UIColor *color;
 
-@property(nonatomic,strong) NSArray *menuColors;
-
-- (NSMutableArray *)sharedItems;
 @end
