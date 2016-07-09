@@ -12,6 +12,7 @@
 @interface ViewController ()
 
 @property (nonatomic, strong) NSArray *images;//of ImageViewCard 's
+@property (nonatomic, assign) BOOL isGalleryOpen;
 @end
 
 @implementation ViewController
@@ -69,6 +70,8 @@
 
 - (void)selectImage:(ImageViewCard *)selectedImage{
     
+    self.isGalleryOpen = NO;
+    
     for (UIView *subview in self.view.subviews) {
         if ([subview isKindOfClass:[ImageViewCard class]]) {
             if (subview == selectedImage) {
@@ -95,6 +98,24 @@
 }
 
 - (IBAction)toggleGallery:(UIBarButtonItem *)sender {
+    
+    //challenges
+    if (self.isGalleryOpen) {
+        for (UIView *subview in self.view.subviews) {
+            if ([subview isKindOfClass:[ImageViewCard class]]) {
+                [UIView animateWithDuration:0.33 delay:0.0 options:UIViewAnimationOptionCurveEaseIn animations:^{
+                    subview.layer.transform = CATransform3DIdentity;
+                } completion:nil];
+            }
+        }
+        
+        self.isGalleryOpen = NO;
+        
+        return;
+    }
+    
+    
+    self.isGalleryOpen = YES;
     
     CGFloat imageYOffset = 50.0;
     for (UIView *subview in self.view.subviews) {
