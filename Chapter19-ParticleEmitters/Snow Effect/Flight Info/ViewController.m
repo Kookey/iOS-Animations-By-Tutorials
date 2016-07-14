@@ -61,7 +61,6 @@ typedef NS_ENUM(NSInteger, AnimationDirection) {
     emitterCell.contents = (__bridge id _Nullable)([UIImage imageNamed:@"flake"].CGImage);
     emitterCell.birthRate = 150;
     emitterCell.lifetime = 3.5;
-    emitter.emitterCells = @[emitterCell];
     
     emitterCell.yAcceleration = 70.0;
     emitterCell.xAcceleration = 10.0;
@@ -79,6 +78,45 @@ typedef NS_ENUM(NSInteger, AnimationDirection) {
     emitterCell.alphaRange = 0.75;
     emitterCell.alphaSpeed = -0.15;
     emitterCell.lifetimeRange = 1.0;
+    
+    //cell #2
+    CAEmitterCell *cell2 = [CAEmitterCell emitterCell];
+    cell2.contents = (__bridge id _Nullable)([UIImage imageNamed:@"flake2.png"].CGImage);
+    cell2.birthRate = 50;
+    cell2.lifetime = 2.5;
+    cell2.lifetimeRange = 1.0;
+    cell2.yAcceleration = 50;
+    cell2.xAcceleration = 50;
+    cell2.velocity = 80;
+    cell2.emissionLongitude = (M_PI);
+    cell2.velocityRange = 20;
+    cell2.emissionRange = (M_PI_4);
+    cell2.scale = 0.8;
+    cell2.scaleRange = 0.2;
+    cell2.scaleSpeed = -0.1;
+    cell2.alphaRange = 0.35;
+    cell2.alphaSpeed = -0.15;
+    cell2.spin = (M_PI);
+    cell2.spinRange = (M_PI);
+    
+    //cell #3;
+    CAEmitterCell *cell3 = [CAEmitterCell emitterCell];
+    cell3.contents = (__bridge id _Nullable)([UIImage imageNamed:@"flake3"].CGImage);
+    cell3.birthRate = 20;
+    cell3.lifetime = 7.5;
+    cell3.lifetimeRange = 1.0;
+    cell3.yAcceleration = 20;
+    cell3.xAcceleration = 10;
+    cell3.velocity = 40;
+    cell3.emissionLongitude = (M_PI);
+    cell3.velocityRange = 50;
+    cell3.emissionRange = (M_PI_4);
+    cell3.scale = 0.8;
+    cell3.scaleRange = 0.2;
+    cell3.scaleSpeed = -0.05;
+    cell3.alphaRange = 0.5;
+    cell3.alphaSpeed = -0.05;
+    emitter.emitterCells = @[emitterCell,cell2,cell3];
     
 }
 
