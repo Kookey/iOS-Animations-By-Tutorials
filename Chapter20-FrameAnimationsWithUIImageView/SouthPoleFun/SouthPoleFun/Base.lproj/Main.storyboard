@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="GH8-4O-jPx" userLabel="bg">
+                                <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tg7-2F-ne4" userLabel="left">
+                                <rect key="frame" x="26" y="284" width="55" height="55"/>
+                                <state key="normal" image="btn-left"/>
+                                <connections>
+                                    <action selector="actionLeft:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WcS-pR-SWI"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3sO-g4-Zbj" userLabel="right">
+                                <rect key="frame" x="111" y="284" width="55" height="55"/>
+                                <state key="normal" image="btn-right"/>
+                                <connections>
+                                    <action selector="actionLeft:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gTH-Qq-FCB"/>
+                                    <action selector="actionRight:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Knu-n9-15x"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I1j-a7-zdN" userLabel="slide">
+                                <rect key="frame" x="573" y="284" width="55" height="55"/>
+                                <state key="normal" image="btn-slide"/>
+                                <connections>
+                                    <action selector="actionSlide:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hQz-4V-4Td"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="walk01" translatesAutoresizingMaskIntoConstraints="NO" id="QQr-Z9-eaF" userLabel="Penguin">
+                                <rect key="frame" x="181" y="198" width="108" height="96"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="GH8-4O-jPx" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="amt-F1-fpR"/>
+                            <constraint firstAttribute="bottom" secondItem="GH8-4O-jPx" secondAttribute="bottom" id="kob-s8-tdb"/>
+                            <constraint firstItem="GH8-4O-jPx" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="n6I-Ef-Bcb"/>
+                            <constraint firstAttribute="trailing" secondItem="GH8-4O-jPx" secondAttribute="trailing" id="pQq-w8-jAk"/>
+                        </constraints>
+                    </view>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="penguin" destination="QQr-Z9-eaF" id="iR6-Rt-uvn"/>
+                        <outlet property="slideButton" destination="I1j-a7-zdN" id="pyD-GN-J8E"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="429" y="313"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="bg" width="568" height="320"/>
+        <image name="btn-left" width="55" height="55"/>
+        <image name="btn-right" width="55" height="55"/>
+        <image name="btn-slide" width="55" height="55"/>
+        <image name="walk01" width="108" height="96"/>
+    </resources>
+</document>
