@@ -7,6 +7,7 @@
 //
 
 #import "PopAnimator.h"
+#import "HerbDetailViewController.h"
 
 static const CGFloat duration = 1.0;
 
@@ -39,9 +40,15 @@ static const CGFloat duration = 1.0;
     [containerView addSubview:toView];
     [containerView bringSubviewToFront:herbView];
     
+    HerbDetailViewController *herbController = [transitionContext viewControllerForKey:self.presenting ? UITransitionContextToViewControllerKey : UITransitionContextFromViewKey];
+    if (self.presenting) {
+        herbController.containerView.alpha = 0.0;
+    }
+    
     [UIView animateWithDuration:duration delay:0.0 usingSpringWithDamping:0.4 initialSpringVelocity:0.0 options:0 animations:^{
         herbView.transform = self.presenting ? CGAffineTransformIdentity : scaleTransform;
         herbView.center = CGPointMake(CGRectGetMidX(finalFrame), CGRectGetMidY(finalFrame));
+        herbController.containerView.alpha = self.presenting ? 1.0 : 0.0;
     } completion:^(BOOL finished) {
         if (!self.presenting) {
             self.dismissCompletion();
@@ -49,5 +56,13 @@ static const CGFloat duration = 1.0;
         
         [transitionContext completeTransition:YES];
     }];
+    
+    CABasicAnimation *round = [CABasicAnimation animationWithKeyPath:@"cornerRadius"];
+    round.fromValue =  @(!self.presenting ? 0.0 : 20.0/xScaleFactor);
+    round.toValue = @(self.presenting ? 0.0 : 20.0/ xScaleFactor);
+    round.duration = duration / 2;
+    [herbView.layer addAnimation:round forKey:nil];
+    herbView.layer.cornerRadius = self.presenting ? 0.0 : 20.0 / xScaleFactor;
+    
 }
 @end

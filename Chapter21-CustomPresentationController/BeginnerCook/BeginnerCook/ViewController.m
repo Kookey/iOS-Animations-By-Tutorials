@@ -107,6 +107,13 @@
     [self presentViewController:hvc animated:YES completion:nil];
 }
 
+- (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator{
+
+    [coordinator animateAlongsideTransition:^(id<UIViewControllerTransitionCoordinatorContext>  _Nonnull context) {
+        self.bgImage.alpha = (size.width > size.height) ? 0.25 : 0.55;
+        [self positionListItems];
+    } completion:nil];
+}
 
 - (UIStatusBarStyle)preferredStatusBarStyle{
     return UIStatusBarStyleLightContent;

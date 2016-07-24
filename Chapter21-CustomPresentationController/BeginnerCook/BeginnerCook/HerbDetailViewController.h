@@ -11,4 +11,5 @@
 @interface HerbDetailViewController : UIViewController<UIViewControllerTransitioningDelegate>
 
 @property(nonatomic,strong) HerbModel *herb;
+@property (weak, nonatomic) IBOutlet UIView *containerView;
 @end

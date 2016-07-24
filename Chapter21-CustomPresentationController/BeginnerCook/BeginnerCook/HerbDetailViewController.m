@@ -9,7 +9,7 @@
 #import "HerbDetailViewController.h"
 
 @interface HerbDetailViewController ()
-@property (weak, nonatomic) IBOutlet UIView *containerView;
+
 @property (weak, nonatomic) IBOutlet UIImageView *bgImage;
 
 @property (weak, nonatomic) IBOutlet UILabel *titleView;
