@@ -14,6 +14,8 @@
 		E60B86F11D4108C4000068FA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E60B86F01D4108C4000068FA /* Assets.xcassets */; };
 		E60B86F41D4108C4000068FA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E60B86F21D4108C4000068FA /* LaunchScreen.storyboard */; };
 		E60B86FD1D410C14000068FA /* HerbModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E60B86FC1D410C14000068FA /* HerbModel.m */; };
+		E635D4C81D44F39100E5C85C /* HerbDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E635D4C71D44F39100E5C85C /* HerbDetailViewController.m */; };
+		E635D4CB1D44FDB200E5C85C /* PopAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = E635D4CA1D44FDB200E5C85C /* PopAnimator.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +31,10 @@
 		E60B86F51D4108C4000068FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E60B86FB1D410C14000068FA /* HerbModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HerbModel.h; sourceTree = "<group>"; };
 		E60B86FC1D410C14000068FA /* HerbModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HerbModel.m; sourceTree = "<group>"; };
+		E635D4C61D44F39100E5C85C /* HerbDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HerbDetailViewController.h; sourceTree = "<group>"; };
+		E635D4C71D44F39100E5C85C /* HerbDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HerbDetailViewController.m; sourceTree = "<group>"; };
+		E635D4C91D44FDB200E5C85C /* PopAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopAnimator.h; sourceTree = "<group>"; };
+		E635D4CA1D44FDB200E5C85C /* PopAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopAnimator.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +78,10 @@
 				E60B86E41D4108C4000068FA /* Supporting Files */,
 				E60B86FB1D410C14000068FA /* HerbModel.h */,
 				E60B86FC1D410C14000068FA /* HerbModel.m */,
+				E635D4C61D44F39100E5C85C /* HerbDetailViewController.h */,
+				E635D4C71D44F39100E5C85C /* HerbDetailViewController.m */,
+				E635D4C91D44FDB200E5C85C /* PopAnimator.h */,
+				E635D4CA1D44FDB200E5C85C /* PopAnimator.m */,
 			);
 			path = BeginnerCook;
 			sourceTree = "<group>";
@@ -157,6 +167,8 @@
 			files = (
 				E60B86FD1D410C14000068FA /* HerbModel.m in Sources */,
 				E60B86EC1D4108C4000068FA /* ViewController.m in Sources */,
+				E635D4CB1D44FDB200E5C85C /* PopAnimator.m in Sources */,
+				E635D4C81D44F39100E5C85C /* HerbDetailViewController.m in Sources */,
 				E60B86E91D4108C4000068FA /* AppDelegate.m in Sources */,
 				E60B86E61D4108C4000068FA /* main.m in Sources */,
 			);
@@ -307,6 +319,7 @@
 				E60B86FA1D4108C4000068FA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

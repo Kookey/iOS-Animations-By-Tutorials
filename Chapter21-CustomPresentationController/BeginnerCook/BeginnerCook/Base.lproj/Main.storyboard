@@ -11,7 +11,7 @@
         <!--View Controller-->
         <scene sceneID="PEO-HZ-OAy">
             <objects>
-                <viewController id="FhO-Bt-wJh" customClass="ViewController" customModule="BeginnerCook" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="FhO-Bt-wJh" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Uq7-V5-N9k"/>
                         <viewControllerLayoutGuide type="bottom" id="B8f-LS-qI5"/>
@@ -58,8 +58,8 @@ Culinary use typically distinguishes herbs as referring to the leafy green parts
                                 <size key="shadowOffset" width="1" height="2"/>
                                 <variation key="default">
                                     <mask key="constraints">
-                                        <exclude reference="Qqe-jA-K51"/>
                                         <exclude reference="IZn-33-yxt"/>
+                                        <exclude reference="Qqe-jA-K51"/>
                                     </mask>
                                 </variation>
                             </label>
@@ -96,11 +96,11 @@ Culinary use typically distinguishes herbs as referring to the leafy green parts
                             <mask key="constraints">
                                 <exclude reference="WpR-El-ECr"/>
                                 <exclude reference="mhP-dT-kMB"/>
-                                <exclude reference="hsU-OG-oHv"/>
-                                <exclude reference="c34-6B-j5P"/>
-                                <exclude reference="ttv-or-Yko"/>
-                                <exclude reference="fsx-NM-ttf"/>
                                 <exclude reference="AlR-MX-cxw"/>
+                                <exclude reference="c34-6B-j5P"/>
+                                <exclude reference="fsx-NM-ttf"/>
+                                <exclude reference="hsU-OG-oHv"/>
+                                <exclude reference="ttv-or-Yko"/>
                                 <exclude reference="8as-jX-hZf"/>
                                 <exclude reference="Tye-i2-qfu"/>
                             </mask>
@@ -115,10 +115,10 @@ Culinary use typically distinguishes herbs as referring to the leafy green parts
             </objects>
             <point key="canvasLocation" x="294" y="364"/>
         </scene>
-        <!--Herb Details View Controller-->
+        <!--Herb Detail View Controller-->
         <scene sceneID="MYW-vR-EEn">
             <objects>
-                <viewController storyboardIdentifier="HerbDetailsViewController" id="9lT-p7-sq3" customClass="HerbDetailsViewController" customModule="BeginnerCook" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HerbDetailViewController" id="9lT-p7-sq3" customClass="HerbDetailViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="HIs-hx-7Ey"/>
                         <viewControllerLayoutGuide type="bottom" id="uoz-bx-dwd"/>
@@ -155,6 +155,9 @@ Culinary use typically distinguishes herbs as referring to the leafy green parts
                                             <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="actionLicense:" destination="9lT-p7-sq3" eventType="touchUpInside" id="RpM-ob-lOn"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u6T-WI-dSL">
                                         <rect key="frame" x="413" y="266" width="171" height="30"/>
@@ -165,6 +168,9 @@ Culinary use typically distinguishes herbs as referring to the leafy green parts
                                             <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="actionAuthor:" destination="9lT-p7-sq3" eventType="touchUpInside" id="Ubj-IN-fWR"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="calibratedWhite"/>
@@ -196,6 +202,14 @@ Culinary use typically distinguishes herbs as referring to the leafy green parts
                             <constraint firstItem="PtR-L5-i7v" firstAttribute="height" secondItem="chy-ci-XtP" secondAttribute="height" multiplier="0.3" id="xLK-33-rrv"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="authorButton" destination="u6T-WI-dSL" id="sWT-pf-guu"/>
+                        <outlet property="bgImage" destination="aTW-5a-zhZ" id="V2a-gu-LCd"/>
+                        <outlet property="containerView" destination="wy6-yz-dI2" id="wKi-zg-4pV"/>
+                        <outlet property="descriptionView" destination="PtR-L5-i7v" id="C0F-OC-2Ki"/>
+                        <outlet property="licenseButton" destination="ksW-je-50I" id="3uE-0j-Pbv"/>
+                        <outlet property="titleView" destination="0MT-qT-hOr" id="HYL-5c-CT5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Xv-rW-DQC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
